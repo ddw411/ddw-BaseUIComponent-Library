@@ -1,0 +1,7 @@
+// 类似for in
+// 可循环list和map对象 map类似js的object
+@each $key, $val in $theme-colors {
+  .icon-#{$key} {
+    color: $val;
+  }
+}

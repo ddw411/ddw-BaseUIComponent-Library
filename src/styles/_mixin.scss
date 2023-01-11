@@ -37,10 +37,12 @@
   }
 }
 
+// 动画效果的函数封装
 @mixin zoom-animation(
   $direction: 'top',
   $scaleStart: scaleY(0),
   $scaleEnd: scaleY(1),
+  // 从哪个方向开始
   $origin: center top,
 ) {
   .zoom-in-#{$direction}-enter {

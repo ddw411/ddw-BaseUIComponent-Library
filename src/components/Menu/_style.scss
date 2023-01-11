@@ -30,11 +30,13 @@
       align-items: center;
     }
     .arrow-icon {
+      // transition不能继承
       transition: transform .25s ease-in-out;
       margin-left: 3px;
     }
     &:hover {
       .arrow-icon {
+
         transform: rotate(180deg);
       }
     }
@@ -50,7 +52,7 @@
     }
   }
   .ddw-submenu {
-    display: none;
+    // display: none; //display影响动画
     list-style:none;
     padding-left: 0;
     white-space: nowrap;
@@ -66,7 +68,7 @@
     }
   }
   .ddw-submenu.menu-opened {
-    display: block;
+    // display: block;
   }
 }
 .menu-horizontal {

@@ -1,8 +1,8 @@
 {
-  "name": "vikingship",
+  "name": "ddw-uicomponent",
   "version": "0.1.4",
   "description": "React components library",
-  "author": "Viking Zhang",
+  "author": "ddw",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -13,10 +13,9 @@
     "UI",
     "React"
   ],
-  "homepage": "http://vikingship.xyz",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vikingmute/vikingship"
+    "url": "https://github.com/ddw411/ddw-BaseUIComponent-Library"
   },
   "files": [
     "dist"

@@ -2,6 +2,8 @@ import React, { FC, FunctionComponentElement, useContext, useState } from 'react
 import classNames from 'classnames'
 import { MenuContext } from './menu'
 import { MenuItemProps } from './menuItem';
+import Icon from '../Icon/icon';
+import Transition from '../Transition/transition';
 
 // 采用string作为index的数据结构，组成
 // MenuItem-SubMenuItem: "1-1"
@@ -43,7 +45,9 @@ const SubMenu: FC<SubMenuProps> = (props) => {
     } : { }
     
     const classes = classNames('menu-item submenu-item', className, {
-        'is-active': context.activeIndex === index
+        'is-active': context.activeIndex === index,
+        'is-opened': menuOpen,
+        'is-vertical': context.mode === 'vertical'
     })
 
     const renderChildren = () => {
@@ -62,9 +66,15 @@ const SubMenu: FC<SubMenuProps> = (props) => {
             }
         })
         return (
-            <ul className={subMenuClasses}>
-                {childrenComponent}
-            </ul>
+            <Transition
+                in={menuOpen}
+                timeout={300}
+                animation="zoom-in-top"
+            >
+                <ul className={subMenuClasses}>
+                    {childrenComponent}
+                </ul>
+            </Transition>
         )
     }
 
@@ -72,6 +82,7 @@ const SubMenu: FC<SubMenuProps> = (props) => {
         <li key={index} className={classes} {...hoverEvents}>
             <div className='submenu-title' {...clickEvents}>
                 {title}
+                <Icon icon="angle-down" className='arrow-icon'/>
             </div>
             {renderChildren()}
         </li>
@@ -88,10 +99,10 @@ export default SubMenu
 //     //menuitem
 //     <li>1</li>
 //     <li>2</li>
-//     <li> //submenu
+//     <li> //submenuitem
 //         <div>title</div>
 //         <ul> 
-//             <li>0</li> //submenuitem
+//             <li>0</li> //menuitem
 //             <li>1</li>
 //         </ul>
 //     </li>
