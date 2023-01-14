@@ -6,6 +6,7 @@ import Menu from "./components/Menu/menu";
 import MenuItem from "./components/Menu/menuItem";
 import SubMenu from "./components/Menu/subMenu";
 import Icon from "./components/Icon/icon";
+import Upload from "./components/Upload/upload";
 
 library.add(fas)
 const App: React.FC = () => {
@@ -21,6 +22,14 @@ const App: React.FC = () => {
                 </SubMenu>
             </Menu>
             <Icon icon="coffee" theme="danger" size="10x"/>
+            <Upload
+                action="https://jsonplaceholder.typicode.com/posts"
+                onProgress={(precentage, file) => {console.log(precentage,file.name);}}
+                onSuccess={data => {console.log(data);
+                }}
+                onError={(err) => {console.log(err);
+                }}
+            />
         </div>
     )
 }
